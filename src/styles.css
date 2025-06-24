@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Neverday';
-    src: url('font/neverday_extended.ttf') format('truetype');
+    src: url('/font/neverday_extended.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

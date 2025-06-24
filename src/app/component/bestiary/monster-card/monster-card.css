@@ -1,0 +1,14 @@
+.monster-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.monster-img {
+    height: 200px;
+    width: 200px;
+}
+
+.monster-description {
+    font-size: 20px;
+}
