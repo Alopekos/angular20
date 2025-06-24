@@ -1,4 +1,12 @@
-<div class="searchbar">
-  <input class="searchbar-content" type="text" />
-  <button class="searchbar-content">Look for data</button>
+<div class="searchbar-container">
+  <div class="searchbar field">
+    <input
+      class="searchbar-content"
+      id="searchbar-content"
+      placeholder="Monster Name"
+      type="text"
+      (input)="onInputChange($event)"
+    />
+    <label for="searchbar-content" class="label">Monster Name</label>
+  </div>
 </div>

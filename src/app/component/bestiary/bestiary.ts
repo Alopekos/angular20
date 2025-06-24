@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { MonsterCard } from "./monster-card/monster-card";
 import { BestiaryService } from '../bestiary-show-btn/service/bestiary-service';
 
@@ -9,6 +9,7 @@ import { BestiaryService } from '../bestiary-show-btn/service/bestiary-service';
   styleUrl: './bestiary.css'
 })
 export class Bestiary {
+  @Input() inputString : string = "";
   isBestiaryShown : boolean = false
 
   constructor(private bestiaryService: BestiaryService){}
@@ -19,7 +20,28 @@ export class Bestiary {
     })
   }
 
-   bestiaryData : any[] = [
+
+  ngOnChanges(changes: SimpleChanges) {
+  if (changes?.['inputString']) {
+      this.filterBestiaryData();
+    }
+  }
+
+  filterBestiaryData(){
+    if(!this.inputString){
+      this.isBestiaryShown = false
+      this.bestiaryData = [...this.unfilterBestiaryData]
+    } else {
+      this.isBestiaryShown = true
+      const search = this.inputString.toLowerCase();
+      this.bestiaryData = this.bestiaryData.filter(monster => 
+        monster.name.toLowerCase().includes(search))
+    }
+  }
+
+  bestiaryData: any[] = [];
+
+  unfilterBestiaryData : any[] = [
   { name: "Blob", description: "A gelatinous creature that oozes everywhere.", img: "/img-placeholder.svg" },
   { name: "Slime", description: "A classic dungeon-dwelling slime.", img: "/img-placeholder.svg" },
   { name: "Goblin", description: "A mischievous little creature with a big mouth.", img: "/img-placeholder.svg" },

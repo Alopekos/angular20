@@ -11,5 +11,11 @@ import { BestiaryShowBtn } from './component/bestiary-show-btn/bestiary-show-btn
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'angular20';
+  protected title = 'Neverday';
+
+  inputString : string = "";
+
+  onInputChange(value: string){
+    this.inputString = value;
+  }
 }
