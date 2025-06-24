@@ -1,5 +1,5 @@
 <div class="bestiary-container">
-  @for (monster of bestiaryData; track monster){
+  @for (monster of bestiaryData; track monster){ @if (isBestiaryShown) {
   <monster-card [monsterData]="monster"></monster-card>
-  }
+  } }
 </div>

@@ -10,5 +10,7 @@
 }
 
 .monster-description {
-    font-size: 20px;
+    font-size: 30px;
+    text-align: center;
+    max-width: 200px;
 }
